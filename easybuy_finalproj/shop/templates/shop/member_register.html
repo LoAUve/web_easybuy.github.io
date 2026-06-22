@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EASYBUY｜註冊會員</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'shop/style.css' %}?v=points_coupon1">
+</head>
+<body>
+
+<header>
+  <div class="logo">☁ EASYBUY生活市集</div>
+  <nav>
+    <a href="index.html">商品選購</a>
+    <a href="order.html">填寫訂單</a>
+    <a href="search.html">訂單查詢</a>
+    <a href="favorite.html">收藏清單</a>
+    <span id="memberNav"></span>
+  </nav>
+</header>
+
+<main class="order-page">
+  <section class="order-box">
+    <h1>註冊會員</h1>
+
+    <div class="member-panel">
+      <input type="text" id="registerUser" placeholder="設定會員帳號">
+      <input type="password" id="registerPassword" placeholder="設定會員密碼">
+      <input type="text" id="registerName" placeholder="會員姓名">
+
+      <button class="login-btn" onclick="registerMember()">註冊</button>
+
+      <a class="member-link-btn" href="member_login.html">返回登入頁</a>
+
+      <div class="message" id="memberStatus"></div>
+    </div>
+  </section>
+</main>
+
+<footer>EASYBUY生活市集購物網 © 2026｜會員註冊</footer>
+
+<script src="{% static 'shop/script.js' %}?v=points_coupon1"></script>
+
+</body>
+</html>

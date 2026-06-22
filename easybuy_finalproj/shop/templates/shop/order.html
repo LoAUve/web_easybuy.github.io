@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EASYBUY｜填寫訂單</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'shop/style.css' %}?v=points_coupon1">
+</head>
+<body>
+
+<header>
+  <div class="logo">☁ EASYBUY生活市集</div>
+  <nav>
+    <a href="index.html">商品選購</a>
+    <a href="order.html">填寫訂單</a>
+    <a href="search.html">訂單查詢</a>
+    <a href="favorite.html">收藏清單</a>
+    <span id="memberNav"></span>
+  </nav>
+</header>
+
+<main class="order-page">
+
+<section class="order-box">
+
+<h1>填寫訂單資訊</h1>
+
+<p class="order-note">此頁面會讀取上一頁加入購物車的商品資料。</p>
+
+<h2>訂單內容</h2>
+
+<div id="orderCartList">目前沒有商品</div>
+
+<div class="total" id="orderTotalPrice">總金額：NT$0</div>
+
+<h2>優惠券</h2>
+
+<div class="order-coupon-box">
+  <button class="coupon-toggle-btn" onclick="toggleCouponList()">選擇可用優惠券</button>
+  <div id="selectedCouponText" class="selected-coupon">目前未使用優惠券</div>
+
+  <div id="couponDropdown" class="coupon-dropdown">
+    <div id="availableCouponList">登入後可查看可用優惠券</div>
+  </div>
+</div>
+
+<h2>配送方式</h2>
+
+<div class="shipping-select">
+  <label><input type="radio" name="shippingMethod" value="store" checked onchange="renderOrderCart()"> 超商取貨 NT$60</label>
+  <label><input type="radio" name="shippingMethod" value="home" onchange="renderOrderCart()"> 宅配到府 NT$100</label>
+  <label><input type="radio" name="shippingMethod" value="fast" onchange="renderOrderCart()"> 快速到貨 NT$150</label>
+</div>
+<div class="shipping-info" id="orderShippingInfo"></div>
+
+<h2>收件資料</h2>
+
+<input type="text" id="customerName" placeholder="姓名">
+
+<input type="text" id="customerPhone" placeholder="電話">
+
+<textarea id="customerAddress" rows="4" placeholder="收件地址"></textarea>
+
+<button class="submit-btn" onclick="submitOrder()">送出訂單</button>
+
+<a class="back-btn" href="index.html">返回商品頁修改</a>
+
+<div class="message" id="message"></div>
+
+</section>
+
+</main>
+
+<footer>EASYBUY生活市集購物網 © 2026｜訂單填寫頁</footer>
+
+<script src="{% static 'shop/script.js' %}?v=points_coupon1"></script>
+
+</body>
+</html>

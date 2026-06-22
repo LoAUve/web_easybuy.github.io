@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EASYBUY｜訂單查詢</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'shop/style.css' %}?v=points_coupon1">
+</head>
+<body>
+
+<header>
+  <div class="logo">☁ EASYBUY生活市集</div>
+  <nav>
+    <a href="index.html">商品選購</a>
+    <a href="order.html">填寫訂單</a>
+    <a href="search.html">訂單查詢</a>
+    <a href="favorite.html">收藏清單</a>
+    <span id="memberNav"></span>
+  </nav>
+</header>
+
+<main class="order-page">
+
+<section class="order-box">
+
+<h1>訂單查詢</h1>
+
+<input type="text" id="searchPhone" placeholder="請輸入電話">
+
+<button class="submit-btn" onclick="searchOrder()">查詢訂單</button>
+
+<div id="searchResult" class="message"></div>
+
+<hr class="soft-line">
+
+<h2>訂單功能中心</h2><p>可取消訂單與再次購買</p><div id="orderActionArea"></div><h2>會員訂單紀錄</h2>
+<p class="order-note">登入後可查看自己的所有訂單。</p>
+<button class="submit-btn" onclick="showMyOrders()">查看我的訂單</button>
+<div id="myOrdersResult" class="message"></div>
+
+</section>
+
+</main>
+
+<footer>EASYBUY生活市集購物網 © 2026｜訂單查詢頁</footer>
+
+<script src="{% static 'shop/script.js' %}?v=points_coupon1"></script>
+
+</body>
+</html>

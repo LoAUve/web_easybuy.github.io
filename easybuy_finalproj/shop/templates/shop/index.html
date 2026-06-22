@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EASYBUY｜商品選購</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'shop/style.css' %}?v=points_coupon1">
+</head>
+<body>
+
+<header>
+  <div class="logo">☁ EASYBUY生活市集</div>
+  <nav>
+    <a href="index.html">商品選購</a>
+    <a href="order.html">填寫訂單</a>
+    <a href="search.html">訂單查詢</a>
+    <a href="favorite.html">收藏清單</a>
+    <span id="memberNav"></span>
+  </nav>
+</header>
+
+<section class="promo-banner">
+  <button class="banner-arrow" onclick="prevBanner()">‹</button>
+  <div id="bannerContent"></div>
+  <button class="banner-arrow" onclick="nextBanner()">›</button>
+</section>
+
+<section class="hero">
+  <div>
+    <h1>商品選購頁面</h1>
+    <p>在此頁面選擇商品，右側會即時顯示目前購物車內容與總金額。</p>
+  </div>
+
+  <div class="hero-card">
+    <div class="emoji">🛒</div>
+    <h2>先選商品</h2>
+    <p>再前往訂單頁面填寫資料</p>
+  </div>
+</section>
+
+<main class="container">
+
+<section id="products">
+
+<div class="dashboard-row">
+  <div class="rank-box">
+    <h2>熱銷排行榜</h2>
+    <div id="rankingList">目前還沒有銷售資料</div>
+  </div>
+
+  <div class="recent-box">
+    <h2>最近瀏覽商品</h2>
+    <div id="recentList">目前沒有瀏覽紀錄</div>
+  </div>
+</div>
+
+<h2 class="section-title">商品列表</h2>
+
+<div class="categories">
+  <button class="active" onclick="filterProducts('全部', this)">全部</button>
+  <button onclick="filterProducts('食飲品', this)">食飲品</button>
+  <button onclick="filterProducts('日生活用品', this)">日生活用品</button>
+  <button onclick="filterProducts('電子用品', this)">電子用品</button>
+</div>
+
+<div class="product-tools">
+  <input type="text" id="searchInput" placeholder="搜尋商品名稱或介紹" oninput="renderProducts()">
+  <select id="sortSelect" onchange="renderProducts()">
+    <option value="default">預設排序</option>
+    <option value="low">價格低到高</option>
+    <option value="high">價格高到低</option>
+  </select>
+</div>
+
+<div class="product-grid" id="productGrid"></div>
+
+</section>
+
+<aside>
+  <h2 class="cart-title">目前購物車</h2>
+
+  <div id="cartList">目前購物車是空的</div>
+
+  <div class="total" id="totalPrice">總金額：NT$0</div>
+  <div class="discount-info" id="discountInfo"></div>
+  <div class="shipping-info" id="shippingInfo"></div>
+
+  <button class="clear-btn" onclick="clearCart()">清空購物車</button>
+
+  <a class="next-btn" href="order.html">前往付款</a>
+
+  <div class="message" id="message"></div>
+
+</aside>
+
+</main>
+
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeProductDetail()">×</button>
+    <div id="productDetail"></div>
+  </div>
+</div>
+
+<footer>EASYBUY生活市集購物網 © 2026｜商品選購頁</footer>
+
+<script src="{% static 'shop/script.js' %}?v=points_coupon1"></script>
+
+</body>
+</html>

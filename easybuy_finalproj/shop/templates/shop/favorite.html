@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EASYBUY｜收藏清單</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'shop/style.css' %}?v=points_coupon1">
+</head>
+<body>
+
+<header>
+  <div class="logo">☁ EASYBUY生活市集</div>
+  <nav>
+    <a href="index.html">商品選購</a>
+    <a href="order.html">填寫訂單</a>
+    <a href="search.html">訂單查詢</a>
+    <a href="favorite.html">收藏清單</a>
+    <span id="memberNav"></span>
+  </nav>
+</header>
+
+<main class="order-page">
+  <section class="order-box">
+    <h1>我的收藏清單</h1>
+    <p class="order-note">這裡會顯示你在商品詳情中收藏的商品。</p>
+    <div class="product-grid favorite-grid" id="favoriteGrid"></div>
+  </section>
+</main>
+
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeProductDetail()">×</button>
+    <div id="productDetail"></div>
+  </div>
+</div>
+
+<footer>EASYBUY生活市集購物網 © 2026｜收藏清單</footer>
+<script src="{% static 'shop/script.js' %}?v=points_coupon1"></script>
+<script>
+window.addEventListener("load", function(){
+  setTimeout(function(){
+    if(typeof renderFavoritesPage === "function"){
+      renderFavoritesPage();
+    }
+  }, 600);
+});
+</script>
+
+</body>
+</html>

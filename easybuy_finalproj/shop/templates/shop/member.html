@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EASYBUY｜會員中心</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'shop/style.css' %}?v=points_coupon1">
+</head>
+<body>
+
+<header>
+  <div class="logo">☁ EASYBUY生活市集</div>
+  <nav>
+    <a href="index.html">商品選購</a>
+    <a href="order.html">填寫訂單</a>
+    <a href="search.html">訂單查詢</a>
+    <a href="favorite.html">收藏清單</a>
+    <span id="memberNav"></span>
+  </nav>
+</header>
+
+<main class="order-page">
+  <section class="order-box">
+    <h1>會員中心</h1>
+
+    <div class="success-box">✅ 登入成功！歡迎回到 EASYBUY。</div>
+
+    <div class="member-panel">
+      <h2>會員資料</h2>
+
+      <div class="avatar-box">
+        <div id="memberAvatar" class="member-avatar">🙂</div>
+        <input type="file" id="avatarInput" accept="image/*" onchange="uploadAvatar(event)">
+      </div>
+
+      <button class="login-btn" onclick="dailyReward()">領取每日登入獎勵</button>
+      <button class="member-link-btn" onclick="checkIn()">會員簽到</button>
+      <div id="checkinStatus" class="message"></div>
+
+      <div class="message" id="memberStatus">尚未登入</div>
+      <div class="message" id="memberInfo">登入後會顯示會員資料</div>
+      <div class="member-stats" id="memberStats"></div>
+      <div class="member-stats" id="badgeArea"></div>
+
+      <div class="point-center">
+        <h2>會員點數</h2>
+        <div id="memberPointSummary" class="point-summary">登入後會顯示目前點數</div>
+        <p class="order-note">消費完成可累積點數，平常也可透過每日登入與簽到取得點數。</p>
+      </div>
+
+      <div class="coupon-center">
+        <h2>點數兌換優惠券</h2>
+        <p class="order-note">使用會員點數兌換優惠券，兌換後可在填寫訂單頁直接選擇使用。</p>
+        <div id="pointCouponArea" class="coupon-list"></div>
+      </div>
+
+      <div class="coupon-center">
+        <h2>我的優惠券</h2>
+        <div id="memberCouponList" class="coupon-list">目前沒有優惠券</div>
+      </div>
+
+      <div class="coupon-center">
+        <h2>等級優惠券領取</h2>
+        <p class="order-note">每消費 NT$1 可獲得 1 經驗值。等級越高，可領取的優惠券越多。</p>
+        <div id="levelCouponArea" class="coupon-list"></div>
+      </div>
+
+      <a class="member-link-btn" href="search.html">查看訂單紀錄</a>
+      <button class="logout-btn" onclick="logout()">登出</button>
+    </div>
+  </section>
+</main>
+
+<footer>EASYBUY生活市集購物網 © 2026｜會員中心</footer>
+
+<script src="{% static 'shop/script.js' %}?v=points_coupon1"></script>
+
+</body>
+</html>
